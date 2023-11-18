@@ -1,6 +1,7 @@
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Main {
     static Database database = new Database();
@@ -10,8 +11,12 @@ public class Main {
         for(Student student : students){
             String query = "insert into  student(sname,sage,saddress) values ('" + student.getSname() + "'," + student.getAge() + ",'" + student.getAddress() + "')";
             PreparedStatement statement = connection.prepareStatement(query);
-            if(!statement.execute())
+            try{
+                statement.execute();
+            }catch (Exception e){
+                e.printStackTrace();
                 bool = false;
+            }
         }
         connection.close();
         return bool;
@@ -27,7 +32,6 @@ public class Main {
         for(Student s : students){
             String line = s.toString();
             bufferedWriter.write(line);
-            bufferedWriter.newLine();
         }
         bufferedWriter.close();
         fileWriter.close();
@@ -36,13 +40,15 @@ public class Main {
         FileReader fileReader = new FileReader("students.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         ArrayList<Student> students = new ArrayList<>();
-        String line;
-        while(true){
+        String line = bufferedReader.readLine();
+        String info[] = line.trim().split("-");
+        students.add(new Student(Integer.parseInt(info[0]),info[1],Integer.parseInt(info[2].trim()),info[3]));
+        while(line != null){
             line = bufferedReader.readLine();
-            if(line != "")
+            if(line == null)
                 break;
-            String info[] = line.trim().split("-");
-            students.add(new Student(Integer.parseInt(info[0]),info[1],Integer.parseInt(info[2].trim()),info[3] + ", " + info[4]));
+            info = line.trim().split("-");
+            students.add(new Student(Integer.parseInt(info[0]),info[1],Integer.parseInt(info[2].trim()),info[3]));
         }
         bufferedReader.close();
         fileReader.close();
@@ -55,5 +61,7 @@ public class Main {
         if(insert(readFile())){
             System.out.println("insert success");
         }
+        else
+            System.out.println("insert fail!");
     }
 }
