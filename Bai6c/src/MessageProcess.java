@@ -6,20 +6,13 @@ import java.util.logging.Logger;
 
 public class MessageProcess {
     private final static Logger logger = Logger.getLogger("MessageProcess");
-    BlockingQueue<String> messages = new ArrayBlockingQueue<>(5);
-
-    String fname = "message.txt";
-    public MessageProcess(BlockingQueue<String> messages) {
-        this.messages = messages;
-    }
-
-    public synchronized void addMess(String message)throws InterruptedException {
-        this.messages.put(message);
-        logger.info("Add message success.");
-    }
-
+    static BlockingQueue<String> messages = new ArrayBlockingQueue<>(5);
     public synchronized void takeMess()throws InterruptedException{
-        String mess = this.messages.take();
+        String mess = messages.take();
         logger.info(mess);
+    }
+    public static synchronized void addMess(String message)throws InterruptedException {
+        messages.put(message);
+        logger.info("Add message success.");
     }
 }
