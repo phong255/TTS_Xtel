@@ -16,8 +16,8 @@ public class Main {
         Producer producer = new Producer(messageProcess);
         works.put(consumer);
         works.put(producer);
-        RejectedExecutionHandler handler = new ThreadPoolExecutor.DiscardOldestPolicy();
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,5,1L, TimeUnit.SECONDS,works);
+        RejectedExecutionHandler handler = new ThreadPoolExecutor.CallerRunsPolicy();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,5,1L, TimeUnit.SECONDS,works,handler);
         threadPoolExecutor.execute(producer);
         threadPoolExecutor.execute(consumer);
     }

@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,11 +16,19 @@ public class Consumer implements Runnable{
 
     @Override
     public void run(){
-        try{
-            messageProcess.takeMess();
-        }
-        catch (InterruptedException e){
-            logger.log(Level.WARNING,e.getMessage());
-        }
+        Random rd = new Random();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                try{
+                    messageProcess.takeMess();
+                }
+                catch (InterruptedException e){
+                    logger.log(Level.WARNING,e.getMessage());
+                }
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(task,0,1L);
     }
 }
