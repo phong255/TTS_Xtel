@@ -24,23 +24,30 @@ public class Main {
         try{
 //            writeFile();
             byte[] b = readFile();
+//            byte[] b = {3,4,2,10,9,7};
             long start = System.nanoTime();
             Sort s = new Sort();
             //Sap xep tron
-            s.merge_sort(b,0,b.length-1);
+//            s.merge_sort(b,0,b.length-1);
             //Sap xep nhanh
-//            s.quicksort(b,0,b.length-1);
+//            s.quick_sort(b,0,b.length-1);
+            //Sap xep heap sort
+//            s.heapSort(b);
+            //Sap xep shell sort
+            s.shell_sort(b);
             long end = System.nanoTime();
 //            for(byte x : b){
 //                System.out.println(x);
 //            }
             long timeInMillis = TimeUnit.SECONDS.convert(end - start, TimeUnit.NANOSECONDS);
             System.out.println("Time spend in ms: " + timeInMillis);
-        }catch (IOException e){
+        }catch (Exception e){
             e.printStackTrace();
         }
         //Ket qua do :
-        // - merge_sort : sap xep trong 35s
+        // - merge_sort : out of memory
         // - quick_sort : sap xep trong 68s
+        // - heap_sort : sap xep trong 135s
+        // - shell_sort : sap xep trong 187s
     }
 }
