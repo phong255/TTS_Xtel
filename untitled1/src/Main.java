@@ -11,6 +11,7 @@ public class Main {
             ow.write(rd.nextInt(10,99));
             i++;
         }
+        ow.close();
     }
     public static byte[] readFile() throws IOException{
         FileInputStream ir = new FileInputStream("billion_num.txt");
