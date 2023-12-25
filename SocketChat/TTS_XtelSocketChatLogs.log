@@ -124,4 +124,8 @@
   2023-12-25 16:12:41 ERROR Main:58 - Network is unreachable: connect
   2023-12-25 16:14:26 INFO  UIServer:48 - send message
   2023-12-25 16:14:31 ERROR ServerThread:28 - Socket closed
+  2023-12-25 16:52:43 ERROR Main:50 - Address already in use: JVM_Bind
+  2023-12-25 16:53:03 INFO  UIServer:48 - send message
+  2023-12-25 16:53:06 ERROR ServerThread:29 - Socket closed
+  2023-12-25 16:53:15 ERROR ClientThread:27 - Socket closed
   

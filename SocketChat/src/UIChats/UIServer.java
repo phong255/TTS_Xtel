@@ -27,11 +27,11 @@ public class UIServer{
         JTextField textField = new JTextField();
         textField.setBounds(10, 170, 460, 30);
         frame.add(textField);
-        JButton btnSend = new JButton("Send");
+        JButton btnSend = new JButton("Send");      //Nút gửi tin nhắn
         btnSend.setBounds(100, 220, 300, 30);
-        JButton btnStart = new JButton("Start");
+        JButton btnStart = new JButton("Start");    //Nút tạo socket chờ kết nối từ server
         btnStart.setBounds(100, 270, 300, 30);
-        JButton btnClose = new JButton("Close");
+        JButton btnClose = new JButton("Close");    //Đóng kết nối từ socket của server
         btnClose.setBounds(100, 320, 300, 30);
         class ButtonListener implements ActionListener {
             String send_msg;

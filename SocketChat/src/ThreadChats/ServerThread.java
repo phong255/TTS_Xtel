@@ -19,6 +19,7 @@ public class ServerThread implements  Runnable{
     @Override
     public void run() {
         try{
+            //Thread riêng để nhận tin
             String messAccept = "";
             while((messAccept = server.getMessage()) != null){
                 messages.append(messAccept + "\n");

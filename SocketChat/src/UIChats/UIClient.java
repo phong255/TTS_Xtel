@@ -3,6 +3,7 @@ package UIChats;
 import Sockets.Client;
 import ThreadChats.ClientThread;
 import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -42,7 +43,7 @@ public class UIClient {
             public void actionPerformed(ActionEvent e) {
                 send_msg = textField.getText();
                 try {
-                    client.sendMessage(send_msg);
+                    client.sendMessage(send_msg);   //Gửi tin nhắn đến server được nhập từ textField khi ấn nút Send
                     logger.info("send message");
                 } catch (IOException ex) {
                     logger.error(ex.getMessage(),ex.getCause());
@@ -57,7 +58,7 @@ public class UIClient {
                 messages.append("Connecting...\n");
                 String messAccept="";
                 Thread clientThread = new Thread(new ClientThread(client, messages));
-                clientThread.start();
+                clientThread.start();   //Chạy Thead nhận tin
             }
         }
         btnStart.addActionListener(new ButtonStartListener());
