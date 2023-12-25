@@ -1,0 +1,127 @@
+2023-12-25 13:35:24 ERROR ClientThread:29 - Connection reset
+  2023-12-25 13:35:27 ERROR UIClient:48 - Connection reset by peer: socket write error
+  2023-12-25 13:36:40 ERROR UIClient:48 - Connection reset by peer: socket write error
+  2023-12-25 13:37:12 ERROR ClientThread:29 - Connection reset
+  2023-12-25 13:37:12 ERROR ClientThread:29 - Connection reset
+  2023-12-25 13:38:20 ERROR ClientThread:29 - Socket closed
+  2023-12-25 13:45:14 INFO  UIServer:48 - send message
+  2023-12-25 13:45:18 INFO  UIClient:47 - send message
+  2023-12-25 13:54:29 INFO  UIServer:48 - send message
+  2023-12-25 13:54:32 INFO  UIClient:47 - send message
+  2023-12-25 13:54:35 INFO  UIServer:48 - send message
+  2023-12-25 13:54:37 INFO  UIClient:47 - send message
+  2023-12-25 13:54:38 INFO  UIServer:48 - send message
+  2023-12-25 13:54:39 INFO  UIServer:48 - send message
+  2023-12-25 13:54:40 INFO  UIServer:48 - send message
+  2023-12-25 13:54:40 INFO  UIServer:48 - send message
+  2023-12-25 13:54:42 ERROR ClientThread:29 - Socket closed
+  2023-12-25 13:58:03 INFO  UIServer:48 - send message
+  2023-12-25 13:58:16 INFO  UIClient:47 - send message
+  2023-12-25 13:58:32 INFO  UIClient:47 - send message
+  2023-12-25 13:58:32 INFO  UIClient:47 - send message
+  2023-12-25 13:58:33 INFO  UIClient:47 - send message
+  2023-12-25 13:58:33 INFO  UIClient:47 - send message
+  2023-12-25 13:58:35 ERROR ClientThread:29 - Socket closed
+  2023-12-25 14:05:52 INFO  UIServer:48 - send message
+  2023-12-25 14:05:59 INFO  UIClient:47 - send message
+  2023-12-25 14:06:07 INFO  UIServer:48 - send message
+  2023-12-25 14:06:09 INFO  UIServer:48 - send message
+  2023-12-25 14:06:29 ERROR ClientThread:32 - Socket closed
+  2023-12-25 14:07:36 INFO  UIServer:48 - send message
+  2023-12-25 14:07:41 INFO  UIClient:47 - send message
+  2023-12-25 14:07:47 INFO  UIServer:48 - send message
+  2023-12-25 14:07:48 INFO  UIClient:47 - send message
+  2023-12-25 14:07:48 INFO  UIClient:47 - send message
+  2023-12-25 14:07:49 ERROR ServerThread:32 - Socket closed
+  2023-12-25 14:21:26 INFO  UIClient:47 - send message
+  2023-12-25 14:21:31 INFO  UIServer:48 - send message
+  2023-12-25 14:21:34 INFO  UIClient:47 - send message
+  2023-12-25 14:21:35 INFO  UIServer:48 - send message
+  2023-12-25 14:21:37 ERROR ClientThread:31 - Socket closed
+  2023-12-25 14:23:50 INFO  UIServer:48 - send message
+  2023-12-25 14:23:53 INFO  UIClient:47 - send message
+  2023-12-25 14:23:56 INFO  UIClient:47 - send message
+  2023-12-25 14:23:57 INFO  UIClient:47 - send message
+  2023-12-25 14:23:57 INFO  UIClient:47 - send message
+  2023-12-25 14:23:59 ERROR ClientThread:32 - Socket closed
+  2023-12-25 14:27:17 INFO  UIClient:47 - send message
+  2023-12-25 14:27:22 INFO  UIServer:48 - send message
+  2023-12-25 14:27:24 INFO  UIServer:48 - send message
+  2023-12-25 14:27:26 INFO  UIClient:47 - send message
+  2023-12-25 14:27:26 INFO  UIClient:47 - send message
+  2023-12-25 14:27:27 INFO  UIClient:47 - send message
+  2023-12-25 14:27:27 INFO  UIClient:47 - send message
+  2023-12-25 14:27:30 ERROR ServerThread:31 - Socket closed
+  2023-12-25 14:31:59 ERROR UIClient:87 - Connection refused: connect
+  2023-12-25 14:32:16 INFO  UIClient:47 - send message
+  2023-12-25 14:32:19 INFO  UIServer:48 - send message
+  2023-12-25 14:32:21 INFO  UIClient:47 - send message
+  2023-12-25 14:32:26 INFO  UIServer:48 - send message
+  2023-12-25 14:32:26 INFO  UIServer:48 - send message
+  2023-12-25 14:32:26 INFO  UIServer:48 - send message
+  2023-12-25 14:32:28 ERROR ServerThread:31 - Socket closed
+  2023-12-25 14:37:55 INFO  UIServer:48 - send message
+  2023-12-25 14:37:57 INFO  UIClient:47 - send message
+  2023-12-25 14:37:59 INFO  UIServer:48 - send message
+  2023-12-25 14:37:59 INFO  UIServer:48 - send message
+  2023-12-25 14:38:00 ERROR ServerThread:31 - Socket closed
+  2023-12-25 14:46:23 ERROR ServerThread:32 - Socket closed
+  2023-12-25 14:46:31 ERROR UIClient:49 - Software caused connection abort: socket write error
+  2023-12-25 14:46:41 ERROR UIClient:49 - Software caused connection abort: socket write error
+  2023-12-25 14:47:06 INFO  UIServer:50 - send message
+  2023-12-25 14:47:10 INFO  UIClient:47 - send message
+  2023-12-25 14:47:14 ERROR ServerThread:32 - Socket closed
+  2023-12-25 14:49:18 INFO  UIServer:50 - send message
+  2023-12-25 14:49:22 INFO  UIClient:47 - send message
+  2023-12-25 14:49:31 INFO  UIServer:50 - send message
+  2023-12-25 14:49:31 INFO  UIServer:50 - send message
+  2023-12-25 14:49:34 ERROR ServerThread:33 - Socket closed
+  2023-12-25 14:53:08 INFO  UIServer:50 - send message
+  2023-12-25 14:53:25 ERROR ServerThread:33 - Socket closed
+  2023-12-25 14:55:42 INFO  UIServer:50 - send message
+  2023-12-25 14:55:46 INFO  UIClient:47 - send message
+  2023-12-25 14:55:55 INFO  UIServer:50 - send message
+  2023-12-25 14:56:02 ERROR ServerThread:34 - Socket closed
+  2023-12-25 15:00:44 ERROR ClientThread:32 - Connection reset
+  2023-12-25 15:01:02 INFO  UIServer:50 - send message
+  2023-12-25 15:01:05 ERROR UIClient:49 - Software caused connection abort: socket write error
+  2023-12-25 15:02:00 INFO  UIServer:50 - send message
+  2023-12-25 15:02:05 ERROR UIClient:49 - Software caused connection abort: socket write error
+  2023-12-25 15:02:08 ERROR ServerThread:33 - Socket closed
+  2023-12-25 15:05:43 INFO  UIServer:50 - send message
+  2023-12-25 15:05:47 ERROR UIClient:49 - Software caused connection abort: socket write error
+  2023-12-25 15:05:53 ERROR ServerThread:33 - Connection reset
+  2023-12-25 15:07:55 INFO  UIServer:50 - send message
+  2023-12-25 15:07:57 INFO  UIClient:47 - send message
+  2023-12-25 15:08:03 INFO  UIServer:50 - send message
+  2023-12-25 15:08:06 INFO  UIClient:47 - send message
+  2023-12-25 15:08:49 ERROR ServerThread:29 - Socket closed
+  2023-12-25 15:10:58 INFO  UIServer:48 - send message
+  2023-12-25 15:11:02 INFO  UIServer:48 - send message
+  2023-12-25 15:11:05 INFO  UIClient:47 - send message
+  2023-12-25 15:11:09 ERROR ServerThread:27 - Socket closed
+  2023-12-25 15:29:17 ERROR Main:47 - Connection refused: connect
+  2023-12-25 15:32:32 INFO  UIServer:48 - send message
+  2023-12-25 15:32:34 ERROR ServerThread:27 - Socket closed
+  2023-12-25 15:32:44 INFO  UIClient:46 - send message
+  2023-12-25 15:32:49 INFO  UIClient:46 - send message
+  2023-12-25 15:32:50 INFO  UIClient:46 - send message
+  2023-12-25 15:32:51 INFO  UIClient:46 - send message
+  2023-12-25 15:35:13 ERROR Main:33 - Address already in use: JVM_Bind
+  2023-12-25 15:35:44 INFO  UIClient:46 - send message
+  2023-12-25 15:35:46 INFO  UIClient:46 - send message
+  2023-12-25 15:35:54 INFO  UIServer:48 - send message
+  2023-12-25 15:35:56 ERROR ServerThread:27 - Socket closed
+  2023-12-25 15:36:06 ERROR ClientThread:27 - Socket closed
+  2023-12-25 15:36:06 ERROR ServerThread:27 - socket closed
+  2023-12-25 16:03:04 INFO  UIServer:48 - send message
+  2023-12-25 16:03:10 INFO  UIServer:48 - send message
+  2023-12-25 16:03:12 ERROR ServerThread:28 - Socket closed
+  2023-12-25 16:03:14 ERROR ServerThread:28 - Socket closed
+  2023-12-25 16:10:38 INFO  UIServer:48 - send message
+  2023-12-25 16:10:47 INFO  UIClient:46 - send message
+  2023-12-25 16:10:52 ERROR ServerThread:28 - Socket closed
+  2023-12-25 16:12:41 ERROR Main:58 - Network is unreachable: connect
+  2023-12-25 16:14:26 INFO  UIServer:48 - send message
+  2023-12-25 16:14:31 ERROR ServerThread:28 - Socket closed
+  
