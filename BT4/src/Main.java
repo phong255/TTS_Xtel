@@ -1,42 +1,28 @@
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import Database.Database;
+import Exceptions.IOFileException;
+import org.apache.log4j.Logger;
+
 import java.io.*;
-import java.net.ServerSocket;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
 import java.util.concurrent.CountDownLatch;
-import java.util.logging.Logger;
 
 public class Main {
-    final static Logger logger = Logger.getLogger("main");
+    final static Logger logger = Logger.getLogger(Main.class);
     static Database database = new Database();
-    public static boolean insert(ArrayList<Student> students) throws SQLException, ClassNotFoundException{
+    //----Insert student vào database-----
+    public static void insert(ArrayList<Student> students) throws SQLException, ClassNotFoundException{
         Connection connection = database.getConnect();
-        boolean bool = true;
         for(Student student : students){
             String query = "insert into  student(sname,sage,saddress) values ('" + student.getSname() + "'," + student.getAge() + ",'" + student.getAddress() + "')";
             PreparedStatement statement = connection.prepareStatement(query);
-            try{
-                statement.execute();
-            }catch (Exception e){
-                e.printStackTrace();
-                bool = false;
-            }
+            statement.execute();
         }
         connection.close();
-        return bool;
     }
 
-    public static void writeFile() throws IOException{
-        ArrayList<Student> students = new ArrayList<>();
-        students.add(new Student(1,"phong1",18,"phuc yen, vinh phuc"));
-        students.add(new Student(2,"hue1",18,"phuc yen, vinh phuc"));
-        students.add(new Student(3,"hoa1",18,"phuc yen, vinh phuc"));
+    //Lưu dữ liệu student vào file
+    public static void writeFile(ArrayList<Student> students) throws IOException{
         FileWriter fileWriter = new FileWriter("students.txt");
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         for(Student s : students){
@@ -46,6 +32,8 @@ public class Main {
         bufferedWriter.close();
         fileWriter.close();
     }
+
+    //Đọc dữ liệu student từ file
     public static ArrayList<Student> readFile() throws IOException{
         FileReader fileReader = new FileReader("students.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -65,7 +53,7 @@ public class Main {
         return students;
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
+    public static void main(String[] args){
 //        writeFile();
 //        System.out.println(readFile().size());
 //        if(insert(readFile())){
@@ -73,42 +61,64 @@ public class Main {
 //        }
 //        else
 //            System.err.println("insert fail!");
+//        long start = System.nanoTime();
+        int i=0;
         CountDownLatch latch = new CountDownLatch(1);
-        //1000 insert vào database . Kết quả : Lỗi do quá nhiều kết nối => insert không đủ số bản ghi
+        //------1000 threads insert vào database .
+        /* Kết quả : Lỗi do quá nhiều kết nối => insert không đủ số bản ghi */
 //        while(i<1000){
 //            Student student = new Student("stu"+i,i++,"addr"+i);
 //            InsertThread insertThread = new InsertThread(latch,database,student);
 //            Thread thread = new Thread(insertThread);
 //            thread.start();
 //        }
-        ServerSocket server = new ServerSocket(2505);
-        JFrame frame = new JFrame();
-        frame.setTitle("Dashboard");
-        frame.setSize(300,400);
-        JButton btn = new JButton("Chat: Client-Server");
-        btn.setBounds(100,250, 100,30);
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try{
-                    Server serverThread1 = new Server(server,"Server 1");   // Tạo thread mới để nhận tin từ client khác
-                    Client client = new Client(); //Tạo client mới
-                }
-                catch(Exception ex){
-                    logger.warning(ex.getMessage());
-                }
-                latch.countDown();
-            }
-        });
-        frame.add(btn);
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-        frame.setLayout(null);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+//        latch.countDown();
+//        long end = System.nanoTime();
+//        long timeInMillis = TimeUnit.SECONDS.convert(end - start, TimeUnit.NANOSECONDS);
+//        System.out.println("Time spend in ms: " + timeInMillis);
+        //----------------------------------------------------------------------------------------------
+
+        //----insert 1000 bản ghi trên 1 thread
+        // Kết quả : mất 3s
+//        ArrayList<Student> students = new ArrayList<>();
+//        long start = System.nanoTime();
+//        while(i<1000){
+//            Student student = new Student("stu"+i,i++,"addr"+i);
+//            students.add(student);
+//        }
+//        insert(students);
+//        long end = System.nanoTime();
+//        long timeInMillis = TimeUnit.SECONDS.convert(end - start, TimeUnit.NANOSECONDS);
+//        System.out.println("Time spend in second: " + timeInMillis);
+        //-------------------------------------------------------------------------------------------
+
+        //-------insert nhiều bản ghi trên 3 thread---------------
+        //Kết quả : mỗi thread mất 1 s
+        ArrayList<Student> students;
+        try {
+            students = readFile();
+        } catch (IOException e) {
+            throw new IOFileException(e);
+        }
+        ArrayList<Student> students1 = new ArrayList<>();
+        ArrayList<Student> students2 = new ArrayList<>();
+        ArrayList<Student> students3 = new ArrayList<>();
+        for (Student stu : students){
+            if(i<330)
+                students1.add(stu);
+            else if(i>330 && i<660)
+                students2.add(stu);
+            else
+                students3.add(stu);
+            i++;
+        }
+        Thread thread1 = new Thread(new InsertThread(latch,database,students1));
+        Thread thread2 = new Thread(new InsertThread(latch,database,students2));
+        Thread thread3 = new Thread(new InsertThread(latch,database,students3));
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        latch.countDown();
+        //------------------------------------------------------------------------------------
     }
 }
