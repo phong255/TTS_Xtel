@@ -1,14 +1,20 @@
 package dev.lephong.movies.Controllers;
 
-import dev.lephong.movies.Collections.Movie;
+import dev.lephong.movies.Models.Movie;
+import dev.lephong.movies.Models.Review;
 import dev.lephong.movies.Services.MovieService;
-import org.bson.types.ObjectId;
+import dev.lephong.movies.Services.ReviewService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -16,7 +22,10 @@ import java.util.Optional;
 public class MovieController {
     @Autowired
     MovieService movieService;
-    @GetMapping
+    @Autowired
+    ReviewService reviewService;
+
+    @GetMapping("/all")
     public ResponseEntity<List<Movie>> allMovies(){
         return new ResponseEntity<>(movieService.getAllMovie(), HttpStatus.OK);
     }
@@ -24,6 +33,7 @@ public class MovieController {
 //    public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable ObjectId id){
 //        return new ResponseEntity<>(movieService.getSingleMovie(id),HttpStatus.OK);
 //    }
+
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getMovieByImdbId(@PathVariable String imdbId){
         return new ResponseEntity<>(movieService.getMovieByImdbId(imdbId),HttpStatus.OK);

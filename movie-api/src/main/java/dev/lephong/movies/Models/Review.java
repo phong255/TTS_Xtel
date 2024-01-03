@@ -1,4 +1,4 @@
-package dev.lephong.movies.Collections;
+package dev.lephong.movies.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
