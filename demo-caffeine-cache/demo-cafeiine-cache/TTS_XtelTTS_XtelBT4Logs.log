@@ -1,0 +1,74 @@
+2024-01-04 10:53:41 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 10:53:43 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 10:53:45 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 10:53:58 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 10:53:59 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 10:54:00 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 10:59:59 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 10:59:59 INFO  Main:25 - Lay du lieu trong 191374600s
+  2024-01-04 11:00:00 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:00:00 INFO  Main:25 - Lay du lieu trong 1960800s
+  2024-01-04 11:00:01 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:00:01 INFO  Main:25 - Lay du lieu trong 3104800s
+  2024-01-04 11:03:44 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:03:44 INFO  Main:25 - Lay du lieu trong 203098900000000000s
+  2024-01-04 11:03:45 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:03:45 INFO  Main:25 - Lay du lieu trong 1666500000000000s
+  2024-01-04 11:03:46 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:03:46 INFO  Main:25 - Lay du lieu trong 1900300000000000s
+  2024-01-04 11:04:13 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:04:13 INFO  Main:25 - Lay du lieu trong 0s
+  2024-01-04 11:04:14 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:04:14 INFO  Main:25 - Lay du lieu trong 0s
+  2024-01-04 11:04:15 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:04:15 INFO  Main:25 - Lay du lieu trong 0s
+  2024-01-04 11:05:21 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:05:21 INFO  Main:25 - Lay du lieu trong 192s
+  2024-01-04 11:05:22 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:05:22 INFO  Main:25 - Lay du lieu trong 2s
+  2024-01-04 11:05:23 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:05:23 INFO  Main:25 - Lay du lieu trong 1s
+  2024-01-04 11:05:45 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:05:45 INFO  Main:25 - Lay du lieu trong 204millis
+  2024-01-04 11:05:46 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:05:46 INFO  Main:25 - Lay du lieu trong 1millis
+  2024-01-04 11:05:47 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:05:47 INFO  Main:25 - Lay du lieu trong 1millis
+  2024-01-04 11:05:56 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:05:56 INFO  Main:25 - Lay du lieu trong 206 ms
+  2024-01-04 11:05:57 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:05:57 INFO  Main:25 - Lay du lieu trong 1 ms
+  2024-01-04 11:05:58 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:05:58 INFO  Main:25 - Lay du lieu trong 1 ms
+  2024-01-04 11:08:22 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:08:22 INFO  Main:26 - Lay du lieu trong 202 ms
+  2024-01-04 11:08:23 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:08:23 INFO  Main:26 - Lay du lieu trong 1 ms
+  2024-01-04 11:08:24 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:08:24 INFO  Main:26 - Lay du lieu trong 1 ms
+  2024-01-04 11:08:39 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:08:39 INFO  Main:26 - Lay du lieu trong 196 ms
+  2024-01-04 11:08:39 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:08:39 INFO  Main:26 - Lay du lieu trong 1 ms
+  2024-01-04 11:08:40 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:08:40 INFO  Main:26 - Lay du lieu trong 1 ms
+  2024-01-04 11:08:51 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:08:51 INFO  Main:21 - Lay du lieu trong 267 ms
+  2024-01-04 11:08:51 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:08:51 INFO  Main:21 - Lay du lieu trong 1 ms
+  2024-01-04 11:08:51 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:08:51 INFO  Main:21 - Lay du lieu trong 1 ms
+  2024-01-04 11:20:31 INFO  StudentService:29 - Ghi vao cache.
+  2024-01-04 11:20:31 INFO  Main:21 - Lay du lieu trong 249 ms
+  2024-01-04 11:20:31 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:20:31 INFO  Main:21 - Lay du lieu trong 1 ms
+  2024-01-04 11:20:31 INFO  StudentService:36 - Du lieu lay tu cache.
+  2024-01-04 11:20:31 INFO  Main:21 - Lay du lieu trong 1 ms
+  2024-01-04 11:35:59 INFO  StudentService:20 - Du lieu chua duoc luu vao cache !
+  2024-01-04 11:35:59 INFO  StudentService:30 - Ghi vao cache.
+  2024-01-04 11:35:59 INFO  Main:16 - Lay du lieu trong 303 ms
+  2024-01-04 11:35:59 INFO  StudentService:37 - Du lieu lay tu cache.
+  2024-01-04 11:35:59 INFO  Main:16 - Lay du lieu trong 2 ms
+  2024-01-04 11:35:59 INFO  StudentService:37 - Du lieu lay tu cache.
+  2024-01-04 11:35:59 INFO  Main:16 - Lay du lieu trong 4 ms
+  
