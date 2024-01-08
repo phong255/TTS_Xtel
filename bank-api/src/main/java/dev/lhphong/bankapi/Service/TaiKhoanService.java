@@ -4,6 +4,8 @@ import dev.lhphong.bankapi.DAO.TaiKhoanRoleDAO;
 import dev.lhphong.bankapi.Model.TaiKhoan;
 import dev.lhphong.bankapi.DAO.TaiKhoanDAO;
 import dev.lhphong.bankapi.DTO.TaiKhoanDTO;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
@@ -24,7 +26,7 @@ public class TaiKhoanService {
         TaiKhoan taiKhoan = taiKhoanDAO.getByUsername(username);
         TaiKhoanDTO taiKhoanDTO = null;
         if (taiKhoan == null){
-            log.error("Không tìm thấy tài khoản!");
+            log.error("Khong tim thay tai khoan!");
             taiKhoanDTO = new TaiKhoanDTO(null,null,null,"Tài khoản không đúng","ERROR");
         }
         else {

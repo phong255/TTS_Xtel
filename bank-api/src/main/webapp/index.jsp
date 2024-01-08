@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1><%= "Hello World!" %></h1>
-<form action="api-test" method="post">
+<form action="api/v1/client" method="post">
   <input type="text" name="input">
   <input type="submit" value="save">
 </form>

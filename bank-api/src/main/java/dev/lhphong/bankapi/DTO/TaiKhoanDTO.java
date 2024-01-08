@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TaiKhoanDTO implements Serializable {
     private String tenTaiKhoan;
-    private String password;
+    private String matKhau;
     private List<Integer> roles;
 
     private String message;
@@ -15,15 +15,15 @@ public class TaiKhoanDTO implements Serializable {
 
     public TaiKhoanDTO(){}
 
-    public TaiKhoanDTO(String tenTaiKhoan, String password, List<Integer> roles) {
+    public TaiKhoanDTO(String tenTaiKhoan, String matKhau, List<Integer> roles) {
         this.tenTaiKhoan = tenTaiKhoan;
-        this.password = password;
+        this.matKhau = matKhau;
         this.roles = roles;
     }
 
-    public TaiKhoanDTO(String tenTaiKhoan, String password, List<Integer> roles, String message, String status) {
+    public TaiKhoanDTO(String tenTaiKhoan, String matKhau, List<Integer> roles, String message, String status) {
         this.tenTaiKhoan = tenTaiKhoan;
-        this.password = password;
+        this.matKhau = matKhau;
         this.roles = roles;
         this.message = message;
         this.status = status;
@@ -53,12 +53,12 @@ public class TaiKhoanDTO implements Serializable {
         this.tenTaiKhoan = tenTaiKhoan;
     }
 
-    public String getPassword() {
-        return password;
+    public String getMatKhau() {
+        return matKhau;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
     }
 
     public List<Integer> getRoles() {

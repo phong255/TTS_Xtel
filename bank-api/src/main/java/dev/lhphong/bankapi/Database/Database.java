@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,15 +34,18 @@ public class Database {
         Properties props = new Properties();
         Connection connection = null;
         try {
-            props.load(new InputStreamReader(new FileInputStream("database.properties")));
-            String url = props.getProperty("DATABASE.URL");
-            String username = props.getProperty("DATABASE.USERNAME");
-            String password = props.getProperty("DATABASE.PASSWORD");
+//            props.load(new FileInputStream("conf/filename.properties"));
+//            String url = props.getProperty("DATABASE.URL");
+//            String username = props.getProperty("DATABASE.USERNAME");
+//            String password = props.getProperty("DATABASE.PASSWORD");
+            String url = "jdbc:mysql://localhost:3306/bank-api";
+            String username = "root";
+            String password = "";
             connection = DriverManager.getConnection(url,username,password);
-        } catch (IOException e) {
-            log.error("Loi doc file config database + {}",e);
+//        } catch (IOException e) {
+//            log.error("Loi doc file config database.",e);
         } catch (SQLException e) {
-            log.error("Loi ket noi database {}",e);
+            log.error("Loi ket noi database.",e);
         }
         return connection;
     }
