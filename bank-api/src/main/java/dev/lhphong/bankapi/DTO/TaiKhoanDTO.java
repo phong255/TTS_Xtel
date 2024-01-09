@@ -11,7 +11,7 @@ public class TaiKhoanDTO implements Serializable {
     private List<Integer> roles;
 
     private String message;
-    private String status;
+    private int status;
 
     public TaiKhoanDTO(){}
 
@@ -21,7 +21,7 @@ public class TaiKhoanDTO implements Serializable {
         this.roles = roles;
     }
 
-    public TaiKhoanDTO(String tenTaiKhoan, String matKhau, List<Integer> roles, String message, String status) {
+    public TaiKhoanDTO(String tenTaiKhoan, String matKhau, List<Integer> roles, String message, int status) {
         this.tenTaiKhoan = tenTaiKhoan;
         this.matKhau = matKhau;
         this.roles = roles;
@@ -37,11 +37,11 @@ public class TaiKhoanDTO implements Serializable {
         this.message = message;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

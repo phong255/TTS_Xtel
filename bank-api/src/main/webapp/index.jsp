@@ -6,9 +6,10 @@
 </head>
 <body>
 <h1><%= "Hello World!" %></h1>
-<form action="api/v1/client" method="post">
-  <input type="text" name="input">
-  <input type="submit" value="save">
+<form action="login-admin" method="post">
+  <input type="text" name="tenTaiKhoan">
+  <input type="text" name="matKhau">
+  <input type="submit" value="login">
 </form>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>

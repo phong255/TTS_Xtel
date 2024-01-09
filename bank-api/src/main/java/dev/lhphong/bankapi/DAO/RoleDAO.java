@@ -2,7 +2,7 @@ package dev.lhphong.bankapi.DAO;
 
 import dev.lhphong.bankapi.Database.Database;
 
-public class RoleDAO {
+public class RoleDAO{
     Database databse = Database.getInstance();
     private static RoleDAO instance;
     private RoleDAO(){}

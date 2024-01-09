@@ -27,10 +27,9 @@ public class TaiKhoanRoleDAO {
     public List<Integer> getRoleByTaiKhoanID(int taiKhoanID){
         Connection connection = databse.getConnection();
         List<Integer> roles = new ArrayList<>();
-        StringBuilder query = null;
-                query.append("select * from taikhoan ");
-                query.append("inner join taikhoanrole");
-                query.append("on taikhoan.taiKhoanID = taikhoanrole.taiKhoanID");
+        StringBuilder query = new StringBuilder("select * from taikhoan ")
+                .append("inner join taikhoanrole")
+                .append(" on taikhoan.taiKhoanID = taikhoanrole.taiKhoanID");
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query.toString());
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -39,7 +38,7 @@ public class TaiKhoanRoleDAO {
             }
         }
         catch (SQLException e){
-            log.error("Loi truy xuat database! {}",e);
+            log.error("Loi truy xuat database!",e);
         }
         return roles;
     }

@@ -19,4 +19,11 @@ public class BankCache {
         }
         return instance;
     }
+
+    //Check xem object co khoa key da duoc luu vao cache chua
+    public static boolean exist(String key){
+        if(instance != null && instance.getIfPresent(key) != null)
+            return true;
+        return false;
+    }
 }
