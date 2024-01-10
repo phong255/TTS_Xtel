@@ -1,6 +1,7 @@
 package dev.lhphong.bankapi.DTO;
 
 import dev.lhphong.bankapi.Model.Role;
+import dev.lhphong.bankapi.Model.TaiKhoan;
 
 import java.io.Serializable;
 import java.util.List;

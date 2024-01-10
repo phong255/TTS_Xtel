@@ -4,6 +4,7 @@ import com.github.benmanes.caffeine.cache.Cache;
 import dev.lhphong.bankapi.CacheConfig.BankCache;
 import dev.lhphong.bankapi.Constant.RoleConstant;
 import dev.lhphong.bankapi.DAO.TaiKhoanRoleDAO;
+import dev.lhphong.bankapi.Model.Role;
 import dev.lhphong.bankapi.Model.TaiKhoan;
 import dev.lhphong.bankapi.DAO.TaiKhoanDAO;
 import dev.lhphong.bankapi.DTO.TaiKhoanDTO;
@@ -13,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -65,8 +67,20 @@ public class TaiKhoanService {
         }
         else {
             List<Integer> roles = taiKhoanRoleDAO.getRoleByTaiKhoanID(taiKhoan.getTaiKhoanID());
-            taiKhoanDTO = new TaiKhoanDTO(taiKhoan.getTenTaiKhoan(),taiKhoan.getMatKhau(),roles,"Success",HttpServletResponse.SC_OK);
+            List<Integer> roles_backup = new ArrayList<>();
+            roles_backup.add(0);
+            taiKhoanDTO = new TaiKhoanDTO(taiKhoan.getTenTaiKhoan(),taiKhoan.getMatKhau(),roles == null ? roles_backup : roles,"Success",HttpServletResponse.SC_OK);
         }
         return taiKhoanDTO;
+    }
+
+    public List<TaiKhoanDTO> getAllTaiKhoan(){
+        List<TaiKhoanDTO> taiKhoanDTOS = new ArrayList<>();
+        List<TaiKhoan> taiKhoans = taiKhoanDAO.getAllTaiKhoan();
+        for (TaiKhoan t : taiKhoans){
+            List<Integer> roles = taiKhoanRoleDAO.getRoleByTaiKhoanID(t.getTaiKhoanID());
+            taiKhoanDTOS.add(new TaiKhoanDTO(t.getTenTaiKhoan(),t.getMatKhau(),roles,"Success",HttpServletResponse.SC_OK));
+        }
+        return taiKhoanDTOS;
     }
 }

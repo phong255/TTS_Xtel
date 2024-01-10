@@ -9,14 +9,34 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>loginAdmin</servlet-name>
-        <url-pattern>/login-admin</url-pattern>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>taiKhoanServlet</servlet-name>
+        <servlet-class>dev.lhphong.bankapi.Controller.admin.TaiKhoanServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>taiKhoanServlet</servlet-name>
+        <url-pattern>/admin-tai-khoan</url-pattern>
+    </servlet-mapping>
+    
+    <!--client filter-->
     <filter>
         <filter-name>clientFilter</filter-name>
         <filter-class>dev.lhphong.bankapi.Filter.ClientFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>clientFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/login-client</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>taiKhoanFilter</filter-name>
+        <filter-class>dev.lhphong.bankapi.Filter.TaiKhoanFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>taiKhoanFilter</filter-name>
+        <url-pattern>/admin-tai-khoan</url-pattern>
     </filter-mapping>
 </web-app>

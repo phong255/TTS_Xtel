@@ -20,7 +20,6 @@ public class LoginClientServlet extends HttpServlet {
 
     }
 
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 

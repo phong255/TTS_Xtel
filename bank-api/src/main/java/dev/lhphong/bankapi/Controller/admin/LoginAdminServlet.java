@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.OutputStream;
-@WebServlet(name = "loginAdmin",value = "/login-admin")
+@WebServlet(name = "loginAdmin",value = "/admin")
 public class LoginAdminServlet extends HttpServlet {
     TaiKhoanService taiKhoanService = TaiKhoanService.getInstance();
     //Login admin
@@ -33,7 +33,13 @@ public class LoginAdminServlet extends HttpServlet {
             taiKhoanDTO_check.setStatus(HttpServletResponse.SC_OK);
             outputStream.write(mapper.writeValueAsString(taiKhoanDTO_check).getBytes());
             //Tao session admin
-            req.getSession().setAttribute("admin",taiKhoanDTO);
+            req.getSession().setAttribute("admin",taiKhoanDTO_check);
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        OutputStream outputStream = resp.getOutputStream();
+        outputStream.write(new String("Welcome to admin!").getBytes());
     }
 }
