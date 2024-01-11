@@ -3,6 +3,8 @@ package dev.lhphong.bankapi.Controller.admin;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.lhphong.bankapi.DTO.TaiKhoanDTO;
 import dev.lhphong.bankapi.Mapper.HttpUtil;
+import dev.lhphong.bankapi.Security.HttpBasicAuth;
+import dev.lhphong.bankapi.Security.TokenJWTUtils;
 import dev.lhphong.bankapi.Service.TaiKhoanService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,13 +35,10 @@ public class LoginAdminServlet extends HttpServlet {
             taiKhoanDTO_check.setStatus(HttpServletResponse.SC_OK);
             outputStream.write(mapper.writeValueAsString(taiKhoanDTO_check).getBytes());
             //Tao session admin
+            String token = HttpBasicAuth.generate(taiKhoanDTO.getTenTaiKhoan(),taiKhoanDTO.getMatKhau());
+            HttpBasicAuth.Authorization = token;
+            resp.setHeader("Authorization", token);
             req.getSession().setAttribute("admin",taiKhoanDTO_check);
         }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        OutputStream outputStream = resp.getOutputStream();
-        outputStream.write(new String("Welcome to admin!").getBytes());
     }
 }

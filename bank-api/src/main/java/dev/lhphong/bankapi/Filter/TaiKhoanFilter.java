@@ -1,6 +1,8 @@
 package dev.lhphong.bankapi.Filter;
 
+import dev.lhphong.bankapi.Constant.RoleConstant;
 import dev.lhphong.bankapi.DTO.TaiKhoanDTO;
+import dev.lhphong.bankapi.Security.HttpBasicAuth;
 import dev.lhphong.bankapi.Service.TaiKhoanService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,19 +17,31 @@ public class TaiKhoanFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
         String path = request.getServletPath();
         if(path.contains("/admin-tai-khoan")){
-            TaiKhoanDTO taiKhoanDTO = (TaiKhoanDTO) request.getSession().getAttribute("admin");
-            if(taiKhoanDTO != null && TaiKhoanService.isAdmin(taiKhoanDTO)){
+            String auth = request.getHeader("Authorization");
+            //Kiem tra ma xac thuc
+            if(auth == null || HttpBasicAuth.Authorization == null){
+                unauthorized(response);
+            }
+            else if (!auth.toUpperCase().startsWith("BASIC ") || auth.compareToIgnoreCase(HttpBasicAuth.Authorization) != 0) {
+                unauthorized(response);
+            }
+            //Kiem tra tai khoan
+            else if(HttpBasicAuth.isAuthorization(auth)){
                 filterChain.doFilter(servletRequest,servletResponse);
             }
             else{
-                log.error("403 - Khong co tham quyen");
-                HttpServletResponse response = (HttpServletResponse) servletResponse;
-                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                response.sendRedirect(request.getContextPath()+"/admin");
+                unauthorized(response);
             }
         }
 
+    }
+
+    public void unauthorized(HttpServletResponse response) throws IOException {
+        log.error("401 - Unauthorized");
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.getOutputStream().write("Unauthorized!".getBytes());
     }
 }

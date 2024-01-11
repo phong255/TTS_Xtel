@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1><%= "Hello World!" %></h1>
-<form action="login-admin" method="post">
+<form action="admin" method="post">
   <input type="text" name="tenTaiKhoan">
   <input type="text" name="matKhau">
   <input type="submit" value="login">

@@ -30,7 +30,7 @@
         <filter-name>clientFilter</filter-name>
         <url-pattern>/login-client</url-pattern>
     </filter-mapping>
-    
+<!--    tai khoan filter-->
     <filter>
         <filter-name>taiKhoanFilter</filter-name>
         <filter-class>dev.lhphong.bankapi.Filter.TaiKhoanFilter</filter-class>
@@ -39,4 +39,13 @@
         <filter-name>taiKhoanFilter</filter-name>
         <url-pattern>/admin-tai-khoan</url-pattern>
     </filter-mapping>
+<!--    login admin filter-->
+<!--    <filter>-->
+<!--        <filter-name>loginFilter</filter-name>-->
+<!--        <filter-class>dev.lhphong.bankapi.Filter.LoginFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>loginFilter</filter-name>-->
+<!--        <url-pattern>/admin</url-pattern>-->
+<!--    </filter-mapping>-->
 </web-app>

@@ -59,28 +59,41 @@ public class TaiKhoanService {
     }
 
     public TaiKhoanDTO getByUsername(String username){
-        TaiKhoan taiKhoan = taiKhoanDAO.getByUsername(username);
-        TaiKhoanDTO taiKhoanDTO = null;
-        if (taiKhoan == null){
-            log.error("Khong tim thay tai khoan!");
-            taiKhoanDTO = new TaiKhoanDTO(null,null,null,"Tai khoan khong chinh xac!", HttpServletResponse.SC_UNAUTHORIZED);
+        TaiKhoanDTO taiKhoanDTO = (TaiKhoanDTO) cache.getIfPresent("taiKhoanByUsername");
+        if(taiKhoanDTO != null){
+            return taiKhoanDTO;
         }
         else {
-            List<Integer> roles = taiKhoanRoleDAO.getRoleByTaiKhoanID(taiKhoan.getTaiKhoanID());
-            List<Integer> roles_backup = new ArrayList<>();
-            roles_backup.add(0);
-            taiKhoanDTO = new TaiKhoanDTO(taiKhoan.getTenTaiKhoan(),taiKhoan.getMatKhau(),roles == null ? roles_backup : roles,"Success",HttpServletResponse.SC_OK);
+            TaiKhoan taiKhoan = taiKhoanDAO.getByUsername(username);
+            if (taiKhoan == null){
+                log.error("Khong tim thay tai khoan!");
+                taiKhoanDTO = new TaiKhoanDTO(null,null,null,"Tai khoan khong chinh xac!", HttpServletResponse.SC_UNAUTHORIZED);
+            }
+            else {
+                List<Integer> roles = taiKhoanRoleDAO.getRoleByTaiKhoanID(taiKhoan.getTaiKhoanID());
+                List<Integer> roles_backup = new ArrayList<>();
+                roles_backup.add(0);
+                taiKhoanDTO = new TaiKhoanDTO(taiKhoan.getTenTaiKhoan(),taiKhoan.getMatKhau(),roles == null ? roles_backup : roles,"Success",HttpServletResponse.SC_OK);
+                cache.put("taiKhoanByUsername",taiKhoanDTO);
+            }
+            return taiKhoanDTO;
         }
-        return taiKhoanDTO;
     }
 
     public List<TaiKhoanDTO> getAllTaiKhoan(){
-        List<TaiKhoanDTO> taiKhoanDTOS = new ArrayList<>();
-        List<TaiKhoan> taiKhoans = taiKhoanDAO.getAllTaiKhoan();
-        for (TaiKhoan t : taiKhoans){
-            List<Integer> roles = taiKhoanRoleDAO.getRoleByTaiKhoanID(t.getTaiKhoanID());
-            taiKhoanDTOS.add(new TaiKhoanDTO(t.getTenTaiKhoan(),t.getMatKhau(),roles,"Success",HttpServletResponse.SC_OK));
+        List<TaiKhoanDTO> taiKhoanDTOS = (List<TaiKhoanDTO>) cache.getIfPresent("allTaiKhoan");
+        if(taiKhoanDTOS != null){
+            return taiKhoanDTOS;
         }
-        return taiKhoanDTOS;
+        else {
+            taiKhoanDTOS = new ArrayList<>();
+            List<TaiKhoan> taiKhoans = taiKhoanDAO.getAllTaiKhoan();
+            for (TaiKhoan t : taiKhoans){
+                List<Integer> roles = taiKhoanRoleDAO.getRoleByTaiKhoanID(t.getTaiKhoanID());
+                taiKhoanDTOS.add(new TaiKhoanDTO(t.getTenTaiKhoan(),t.getMatKhau(),roles,"Success",HttpServletResponse.SC_OK));
+            }
+            cache.put("allTaiKhoan",taiKhoanDTOS);
+            return taiKhoanDTOS;
+        }
     }
 }
