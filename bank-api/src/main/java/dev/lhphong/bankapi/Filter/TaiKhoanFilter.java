@@ -3,6 +3,7 @@ package dev.lhphong.bankapi.Filter;
 import dev.lhphong.bankapi.Constant.RoleConstant;
 import dev.lhphong.bankapi.DTO.TaiKhoanDTO;
 import dev.lhphong.bankapi.Security.HttpBasicAuth;
+import dev.lhphong.bankapi.Security.TokenJWTUtils;
 import dev.lhphong.bankapi.Service.TaiKhoanService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +15,31 @@ import java.io.IOException;
 
 public class TaiKhoanFilter implements Filter {
     private static final Logger log = LoggerFactory.getLogger(TaiKhoanFilter.class);
-    @Override
+//    @Override //Filter Http basic token
+//    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+//        HttpServletRequest request = (HttpServletRequest) servletRequest;
+//        HttpServletResponse response = (HttpServletResponse) servletResponse;
+//        String path = request.getServletPath();
+//        if(path.contains("/admin-tai-khoan")){
+//            String auth = request.getHeader("Authorization");
+//            //Kiem tra ma xac thuc
+//            if(auth == null || HttpBasicAuth.Authorization == null){
+//                unauthorized(response);
+//            }
+//            else if (!auth.toUpperCase().startsWith("BASIC ") || auth.compareToIgnoreCase(HttpBasicAuth.Authorization) != 0) {
+//                unauthorized(response);
+//            }
+//            //Kiem tra tai khoan
+//            else if(HttpBasicAuth.isAuthorization(auth)){
+//                filterChain.doFilter(servletRequest,servletResponse);
+//            }
+//            else{
+//                unauthorized(response);
+//            }
+//        }
+//
+//    }
+    @Override //Filter JWT token
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
@@ -22,14 +47,15 @@ public class TaiKhoanFilter implements Filter {
         if(path.contains("/admin-tai-khoan")){
             String auth = request.getHeader("Authorization");
             //Kiem tra ma xac thuc
-            if(auth == null || HttpBasicAuth.Authorization == null){
+            if(auth == null || !auth.matches("Bearer .+")){
                 unauthorized(response);
             }
-            else if (!auth.toUpperCase().startsWith("BASIC ") || auth.compareToIgnoreCase(HttpBasicAuth.Authorization) != 0) {
-                unauthorized(response);
-            }
+//            else if (auth.compareToIgnoreCase(HttpBasicAuth.Authorization) != 0) {
+//                unauthorized(response);
+//            }
             //Kiem tra tai khoan
-            else if(HttpBasicAuth.isAuthorization(auth)){
+
+            else if(TokenJWTUtils.decode(auth) != TokenJWTUtils.username){
                 filterChain.doFilter(servletRequest,servletResponse);
             }
             else{

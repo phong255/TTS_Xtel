@@ -34,11 +34,14 @@ public class LoginAdminServlet extends HttpServlet {
         else {
             taiKhoanDTO_check.setStatus(HttpServletResponse.SC_OK);
             outputStream.write(mapper.writeValueAsString(taiKhoanDTO_check).getBytes());
-            //Tao session admin
-            String token = HttpBasicAuth.generate(taiKhoanDTO.getTenTaiKhoan(),taiKhoanDTO.getMatKhau());
-            HttpBasicAuth.Authorization = token;
+            //Tao token
+            //----------HTTP basic authorization
+//            String token = HttpBasicAuth.generate(taiKhoanDTO.getTenTaiKhoan(),taiKhoanDTO.getMatKhau());
+            //----------JWT authorization
+                String token = TokenJWTUtils.encode();
             resp.setHeader("Authorization", token);
-            req.getSession().setAttribute("admin",taiKhoanDTO_check);
+//            req.getSession().setAttribute("admin",taiKhoanDTO_check);
         }
     }
+
 }

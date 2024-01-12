@@ -1,5 +1,6 @@
 package dev.lhphong.bankapi.Database;
 
+import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
